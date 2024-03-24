@@ -1,9 +1,121 @@
-/* Global styling */
-.root {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    padding: 20px;
-  }
-  
-  /* Legg til annen styling her etter behov */
-  
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap');
+
+:root {
+    --red: #DA291C;
+    --blue: #006DB7;
+    --yellow: #FFD700;
+    --green: #00AF4D;
+    --black: #000000;
+    --white: #FFFFFF;
+
+    --font: 'Rubik', sans-serif;
+    --rootsize: 20px;
+    --maxsize: 1200px;
+}
+
+body {
+    background-image: url("/website_images/mainbackground.png");
+    background-color: var(--yellow);
+    font-family: var(--font);
+    font-size: var(--rootsize);
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Fixed text sizes */
+p { font-size: 1rem; }
+h2 { font-size: 2.5rem; font-weight: 700; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+
+/* Main structure */
+#container {
+    width: 100%;
+    max-width: var(--maxsize);
+    margin: 0 auto;
+    min-height: 200px;
+    background-color: var(--white);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+nav {
+    background-color: var(--red);
+}
+nav ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+nav a {
+    display: inline-block;
+    padding: 1rem;
+    padding-top: calc(1rem + 4px);
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    border-bottom: 4px solid var(--red);
+}
+nav a:hover, .active {
+    background-color: var(--yellow);
+    color: var(--black);
+    border-bottom: 4px solid var(--black);
+}
+
+/* KATEGORISIDE */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 1rem;
+}
+main h2 {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+}
+main article {
+    max-width: 31%;
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: var(--black);
+    color: var(--white);
+    border-bottom: 1rem solid var(--green);
+}
+main article img {
+    max-width: 100%;
+    height: auto;
+}
+main article h3 {
+    margin: 0.25rem 0;
+    text-transform: uppercase;
+}
+main article a {
+    color: var(--yellow);
+    text-decoration: none;
+    font-size: 1rem;
+}
+main article span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+main article button {
+    background-color: var(--green);
+    border: none;
+    font-family: var(--font);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
