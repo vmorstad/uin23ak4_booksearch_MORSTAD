@@ -24,7 +24,7 @@ function App() {
     return (
         <div>
             <h1>BookSearch Engine</h1>
-            <p>Search within Open Library´s Internet Archive</p>
+            <p>🕯️Search within Open Library´s Internet Archive📚</p>
             <SearchBar setSearchQuery={setSearchQuery} handleSearch={handleSearch} />
             {searchResults.length === 0 ? <BookList /> : <SearchResults searchResults={searchResults} />}
         </div>
