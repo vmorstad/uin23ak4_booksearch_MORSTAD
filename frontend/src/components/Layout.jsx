@@ -8,8 +8,7 @@ export default function Layout() {
         <>
         <Search />
         <BookCard />
-        <SearchResults />
-
+        {/* <SearchResults /> */}
         </>
     )
 }
