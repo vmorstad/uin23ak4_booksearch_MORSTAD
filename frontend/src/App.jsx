@@ -7,7 +7,7 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    null
+    <Layout />
   )
 }
 

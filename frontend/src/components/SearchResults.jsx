@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function SearchResults() {
   return (
-    null
+    <h4>SearchReasults</h4>
   )
 }
