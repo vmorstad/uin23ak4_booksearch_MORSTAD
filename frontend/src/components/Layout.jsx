@@ -1,14 +1,14 @@
-import React from "react";
-import Search from "./Search";
-import BookCard from "./Bookcard"; 
-import SearchResults from "./searchresults";
+import React from 'react';
 
 export default function Layout() {
+    const handleSearch = () => {
+        console.log('Søk utført!')
+    };
+
     return (
         <>
-        <Search />
-        <BookCard />
-        {/* <SearchResults /> */}
+            <input type="text" placeholder="Søk..."/>
+            <button onClick={handleSearch}>Søk</button>
         </>
-    )
+    );
 }

@@ -1,29 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function BookCard({ book }) {
+export default function () {
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+        const fetchJamesBond = async () => {
+            {
+                const response = await fetch('https://openlibrary.org/search.json?q=James+Bond&has_fulltext=false&language=eng&person_facet=James+Bond+%28Fictitious+character%29')
+                const data = await response.json()
+                setBooks(data.docs)
+            }
+        };
+
+        fetchJamesBond()
+    }, [])
+
     return (
-        <div class="search-result">
-            <li>
-                <h3 class="title">Casino Royale</h3>
-                <p class="publication-year">Første publisert: 1953</p>
-                <p class="author">Forfatter: Ian Fleming</p>
-                <p class="rating">Gjennomsnittlig rating: 4.5</p>
-                <a href="https://www.amazon.com/s?k=0395082544" class="amazon-search-button">Søk på Amazon</a>
-            </li>
-            <li>
-                <h3 class="title">Casino Royale</h3>
-                <p class="publication-year">Første publisert: 1953</p>
-                <p class="author">Forfatter: Ian Fleming</p>
-                <p class="rating">Gjennomsnittlig rating: 4.5</p>
-                <a href="https://www.amazon.com/s?k=0395082544" class="amazon-search-button">Søk på Amazon</a>
-            </li>
-            <li>
-                <h3 class="title">Casino Royale</h3>
-                <p class="publication-year">Første publisert: 1953</p>
-                <p class="author">Forfatter: Ian Fleming</p>
-                <p class="rating">Gjennomsnittlig rating: 4.5</p>
-                <a href="https://www.amazon.com/s?k=0395082544" class="amazon-search-button">Søk på Amazon</a>
-            </li>
+        <div>
+            <h2>James Bond Books</h2>
+            <ul>
+                {books.map((book, index) => (
+                    <li key={index}>
+                        <strong>Title:</strong> {book.title}, <strong>Author:</strong> {book.author_name ? book.author_name.join(', ') : 'Unknown'}, <strong>Year:</strong> {book.publish_year}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }

@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function Search() {
+export default function Search({ setSearchQuery, handleSearch }) {
+    const [query, setQuery] = useState('')
+
+    const handleChange = (event) => {
+        setQuery(event.target.value)
+        setSearchQuery(event.target.value)
+    };
+
     return (
-        <>
         <div>
-            <h1>BookSearch Engine📖</h1>
-            <input type="text" placeholder="Søk etter bøker..." />
-            <button>Søk</button>
+            <input type="text" value={query} onChange={handleChange} placeholder="Search books..." />
+            <button onClick={handleSearch}>Search</button>
         </div>
-        </>   
-    )
+    );
 }
-
-
-
-
-
-
